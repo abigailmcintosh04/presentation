@@ -75,11 +75,11 @@
             \coordinate (f2) at (-1.6, -1.0);
             \coordinate (f4) at (1.6, -1.0);
 
-            \draw [fermion] (f1) node[above left] {\(q\)} -- (a);
-            \draw [fermion] (a) -- (f3) node[above right] {\(q'\)};
-            \draw [boson]   (a) -- node[left=2pt] {\(W\)} (b);
-            \draw [fermion] (f2) node[below left] {\(b\)} -- (b);
-            \draw [fermion] (b) -- (f4) node[below right] {\(t\)};
+            \draw [fermion] (f1) node[above left] {$q$} -- (a);
+            \draw [fermion] (a) -- (f3) node[above right] {$q'$};
+            \draw [boson]   (a) -- node[left=2pt] {$W$} (b);
+            \draw [fermion] (f2) node[below left] {$b$} -- (b);
+            \draw [fermion] (b) -- (f4) node[below right] {$t$};
           \end{feynman}
       \end{tikzpicture}%
       }
@@ -99,11 +99,11 @@
             \coordinate (f2) at (-1.6, -1.0);
             \coordinate (f4) at (1.6, -1.0);
 
-            \draw [fermion] (a) -- (f1) node[above left] {\(\bar{q}'\)};
-            \draw [fermion] (f2) node[below left] {\(q\)} -- (a);
-            \draw [boson]   (a) -- node[above=2pt] {\(W\)} (b);
-            \draw [fermion] (f3) node[above right] {\(b\)} -- (b);
-            \draw [fermion] (b) -- (f4) node[below right] {\(t\)};
+            \draw [fermion] (a) -- (f1) node[above left] {$\bar{q}'$};
+            \draw [fermion] (f2) node[below left] {$q$} -- (a);
+            \draw [boson]   (a) -- node[above=2pt] {$W$} (b);
+            \draw [fermion] (f3) node[above right] {$b$} -- (b);
+            \draw [fermion] (b) -- (f4) node[below right] {$t$};
           \end{feynman}
         \end{tikzpicture}%
       }
@@ -123,11 +123,11 @@
             \coordinate (f2) at (-1.6, -1.0);
             \coordinate (f4) at (1.6, -1.0);
 
-            \draw [fermion] (f1) node[above left] {\(b\)} -- (a);
-            \draw [gluon]   (f2) node[below left] {\(g\)} -- (a);
+            \draw [fermion] (f1) node[above left] {$b$} -- (a);
+            \draw [gluon]   (f2) node[below left] {$g$} -- (a);
             \draw [fermion] (a) -- (b);
-            \draw [boson] (b) -- (f3) node[above right] {\(W\)};
-            \draw [fermion] (b) -- (f4) node[below right] {\(t\)};
+            \draw [boson] (b) -- (f3) node[above right] {$W$};
+            \draw [fermion] (b) -- (f4) node[below right] {$t$};
           \end{feynman}
         \end{tikzpicture}%
       }
@@ -153,11 +153,212 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{$t\bar{t}\gamma$ Production}
+
+% ========== TTBAR GAMMA ==========
+\begin{frame}[fragile]{$t\bar{t}\gamma$}
   \begin{itemize}
-    \item Probes coupling between top quark and photon.
+    \item Dominant production $gg \rightarrow t\bar{t}\gamma$.
+    \item Sensitive to top quark electric charge and electromagnetic coupling.
+    \item Three main production mechanisms:
+    \begin{itemize}
+      \item Top radiation: photon emitted from top quark.
+      \item Initial-state radiation (ISR): photon emitted from initial quark or gluon.
+      \item Decay radiation: photon emitted from decay products of top quark.
+    \end{itemize}
   \end{itemize}
-  
+  \begin{figure}[htbp]
+    \centering
+    % ========== 1. Top Radiation (Main signal) ==========
+    \begin{subfigure}[b]{0.31\textwidth}
+      \centering
+      \resizebox{\textwidth}{!}{%
+        \begin{tikzpicture}
+          \begin{feynman}
+            \coordinate (g1)    at (-1.6, 1.0);
+            \coordinate (g2)    at (-1.6, -1.0);
+            \coordinate (v1)    at (-0.6, 0.5);
+            \coordinate (v2)    at (-0.6, -0.5);
+            \coordinate (v_rad) at (0.4, 0.7);
+            \coordinate (gamma) at (1.4, 1.2);
+            \coordinate (t)     at (1.6, 0.3);
+            \coordinate (tbar)  at (1.6, -1.0);
+
+            % Gluon fusion to ttbar
+            \draw [gluon]   (g1) node[above left] {$g$} -- (v1);
+            \draw [gluon]   (g2) node[below left] {$g$} -- (v2);
+            \draw [fermion] (v2) -- (v1);
+            
+            % Top radiation
+            \draw [fermion] (v1) -- (v_rad);
+            \draw [photon]  (v_rad) -- (gamma) node[above right] {$\gamma$};
+            \draw [fermion] (v_rad) -- (t) node[right] {$t$};
+            \draw [anti fermion] (v2) -- (tbar) node[below right] {$\bar{t}$};
+          \end{feynman}
+        \end{tikzpicture}%
+      }
+      \caption{Top radiation}
+      \label{subfig:ttgamma_top}
+    \end{subfigure}\hfill%
+    % ========== 2. Initial State Radiation (ISR) ==========
+    \begin{subfigure}[b]{0.31\textwidth}
+      \centering
+      \resizebox{\textwidth}{!}{%
+        \begin{tikzpicture}
+          \begin{feynman}
+            \coordinate (q1)     at (-1.6, 1.2);
+            \coordinate (v_isr)  at (-0.8, 0.6);
+            \coordinate (v_prod) at (0, 0);
+            \coordinate (q2)     at (-1.6, -1.2);
+            \coordinate (gamma)  at (-0.2, 1.2);
+            \coordinate (v_split) at (0.6, 0);
+            \coordinate (t)      at (1.6, 1.0);
+            \coordinate (tbar)   at (1.6, -1.0);
+
+            % ISR from initial quark
+            \draw [fermion] (q1) node[above left] {$q$} -- (v_isr);
+            \draw [photon]  (v_isr) -- (gamma) node[above] {$\gamma$};
+            \draw [fermion] (v_isr) -- (v_prod);
+            \draw [anti fermion] (q2) node[below left] {$\bar{q}$} -- (v_prod);
+            
+            % Intermediate s-channel gluon
+            \draw [gluon]   (v_prod) -- (v_split);
+            \draw [fermion] (v_split) -- (t) node[above right] {$t$};
+            \draw [anti fermion] (v_split) -- (tbar) node[below right] {$\bar{t}$};
+          \end{feynman}
+        \end{tikzpicture}%
+      }
+      \caption{Initial-state radiation}
+      \label{subfig:ttgamma_isr}
+    \end{subfigure}\hfill%
+    % ========== 3. Decay Radiation ==========
+    \begin{subfigure}[b]{0.31\textwidth}
+      \centering
+      \resizebox{\textwidth}{!}{%
+        \begin{tikzpicture}
+          \begin{feynman}
+            \coordinate (t)     at (-1.2, 0);
+            \coordinate (v_top) at (-0.3, 0);
+            \coordinate (b)     at (1.4, -0.8);
+            \coordinate (v_w)   at (0.5, 0.6);
+            \coordinate (gamma) at (1.4, 1.2);
+            \coordinate (w)     at (1.4, 0.4);
+
+            % Top decay vertex
+            \draw [fermion] (t) node[left] {$t$} -- (v_top);
+            \draw [fermion] (v_top) -- (b) node[below right] {$b$};
+            \draw [boson]   (v_top) -- (v_w);
+            
+            % Radiation from W
+            \draw [photon]  (v_w) -- (gamma) node[above right] {$\gamma$};
+            \draw [boson]   (v_w) -- (w) node[right] {$W^+$};
+          \end{feynman}
+        \end{tikzpicture}%
+      }
+      \caption{Decay radiation}
+      \label{subfig:ttgamma_dec}
+    \end{subfigure}
+  \end{figure}
+\end{frame}
+
+
+% ========== TTBAR W ==========
+\begin{frame}{$t\bar{t}W$}
+  \begin{itemize}
+    \item Produced purely through quark-antiquark annihilation as W boson cannot directly couple to gluons.
+  \end{itemize}
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \begin{feynman}
+        \coordinate (a)  at (-0.6, 0);
+        \coordinate (b)  at (0.6, 0);
+        \coordinate (f1) at (-1.6, 1.0);
+        \coordinate (f3) at (1.6, 1.0);
+        \coordinate (f2prime) at (-1.1, -0.5);
+        \coordinate (f2) at (-1.6, -1.0);
+        \coordinate (f4) at (1.6, -1.0);
+        \coordinate (f5) at (-0.6, -1.0);
+
+        \draw [fermion] (f1) node[above left] {$q$} -- (a) ;
+        \draw [fermion] (f2prime) -- (f2) node[below left] {$\bar{q}'$} ;
+        \draw [fermion] (a) -- (f2prime);
+        \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
+        \draw [fermion] (b) -- (f3) node[above right] {$t$};
+        \draw [fermion] (f4) node[below right] {$t$} -- (b);
+        \draw [boson]   (f2prime) -- (f5) node[below right] {$W$};
+      \end{feynman}
+    \end{tikzpicture}%
+  \end{figure}
+\end{frame}
+
+
+% ========== TTBAR Z ==========
+\begin{frame}{$t\bar{t}Z$}
+  \begin{itemize}
+    \item Produced through gluon-gluon fusion or quark-antiquark annihilation.
+    \item Deviations from SM predictions could indicate new effects in electroweak symmetry breaking.
+  \end{itemize}
+
+  \begin{figure}[htbp]
+    % ========== QQBAR ANNIHILATION ==========
+    \begin{subfigure}[b]{0.48\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{feynman}
+          \coordinate (a)  at (-0.6, 0);
+          \coordinate (b)  at (0.6, 0);
+          \coordinate (f1) at (-1.6, 1.0);
+          \coordinate (f3) at (1.6, 1.0);
+          \coordinate (f2prime) at (-1.1, -0.5);
+          \coordinate (f2) at (-1.6, -1.0);
+          \coordinate (f4) at (1.6, -1.0);
+          \coordinate (f5) at (-0.6, -1.0);
+
+          \draw [fermion] (f1) node[above left] {$q$} -- (a) ;
+          \draw [fermion] (f2prime) -- (f2) node[below left] {$\bar{q}'$} ;
+          \draw [fermion] (a) -- (f2prime);
+          \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
+          \draw [fermion] (b) -- (f3) node[above right] {$t$};
+          \draw [fermion] (f4) node[below right] {$t$} -- (b);
+          \draw [boson]   (f2prime) -- (f5) node[below right] {$Z$};
+        \end{feynman}
+      \end{tikzpicture}
+    \end{subfigure}\hfill%
+    % ======== GLUON FUSION ==========
+    \begin{subfigure}[b]{0.48\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{feynman}
+          \coordinate (a)  at (-0.6, 0);
+          \coordinate (b)  at (0.6, 0);
+          \coordinate (f1) at (-1.6, 1.0);
+          \coordinate (f3) at (1.6, 1.0);
+          \coordinate (f3prime) at (1.1, 0.5);
+          \coordinate (f2) at (-1.6, -1.0);
+          \coordinate (f4) at (1.6, -1.0);
+          \coordinate (f5) at (1.6, 0.0);
+
+          \draw [gluon] (f1) node[above left] {$g$} -- (a);
+          \draw [gluon] (f2) node[below left] {$g$} -- (a)  ;
+          \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
+          \draw [fermion] (f3prime) -- (f3) node[above right] {$t$};
+          \draw [fermion] (b) -- (f3prime);
+          \draw [fermion] (f4) node[below right] {$t$} -- (b);
+          \draw [boson]   (f3prime) -- (f5) node[below right] {$Z$};
+        \end{feynman}
+      \end{tikzpicture}
+    \end{subfigure}\hfill%
+  \end{figure}
+\end{frame}
+
+\begin{frame}{$t\bar{t}+Z$ Cross Section}
+  \begin{itemize}
+    \item Inclusive cross section measured at $\sigma_{t\bar{t}Z} = 0.86 \pm 0.04 (\text{stat}) \pm 0.04 (\text{syst})$ pb
+    \item In agreement with Standard Model NLO + NNLL prediction.
+    \item Measurements use data from ATLAS detector during Run 2 of the LHC at $\sqrt{s} = 13$ TeV, corresponding to an integrated luminosity of 140 fb$^{-1}$.
+    \item Two, three and four lepton final states considered.
+  \end{itemize}
+  {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2024)163}{JHEP 07 (2024) 163}} [\href{https://arxiv.org/abs/2312.04450}{\texttt{arXiv:2312.04450}}]}
 \end{frame}
 
 \end{document}
