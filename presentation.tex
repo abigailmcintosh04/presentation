@@ -3,9 +3,11 @@
 \usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{subcaption}
 \usepackage{siunitx}
+\sisetup{uncertainty-mode = separate}
 \DeclareSIUnit\barn{b}
+\setbeamertemplate{caption}[numbered]
 
-\title{My Presentation Title}
+\title{Top + X Measurements with EFT Interpretation at ATLAS}
 \author{Abigail McIntosh}
 \institute{University of Sussex}
 \date{\today}
@@ -26,9 +28,9 @@
 % ========== TOP INTRODUCTION ==========
 \begin{frame}{Top Quark}
   \begin{itemize}
-    \item Heaviest known elementary particle ($m_t = 172.76 \pm 0.3$ GeV).
+    \item Heaviest known elementary particle -- $m_t = \qty{172.76 \pm 0.3}{\giga\electronvolt}$.
     \item Yukawa coupling $y_t \sim 1$, largest of all fermions.
-    \item Short lifetime ($\tau \sim 5 \times 10^{-25}$ s), decays before hadronisation.
+    \item Short lifetime ($\tau \sim \qty{5e-25}{\second}$), decays before hadronisation.
     \item Main production mechanisms:
     \begin{itemize}
       \item Pair production via strong interaction.
@@ -48,6 +50,54 @@
     \item Mediated by strong interaction.
     \item Produced by either gluon-gluon fusion (90\%) or quark-antiquark annihilation (10\%).
   \end{itemize}
+  \begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.33\textwidth}
+      \centering
+      \resizebox{\textwidth}{!}{%
+        \begin{tikzpicture}
+          \begin{feynman}
+            \coordinate (a) at (-0.6, 0);
+            \coordinate (b) at (0.6, 0);
+            \coordinate (f1) at (-1.6, 1.0);
+            \coordinate (f3) at (1.6, 1.0);
+            \coordinate (f2) at (-1.6, -1.0);
+            \coordinate (f4) at (1.6, -1.0);
+
+            \draw [gluon] (f1) node[above left] {$g$} -- (a);
+            \draw [gluon] (a) -- (f2) node[below left] {$g$};
+            \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
+            \draw [fermion] (f3) node[above right] {$t$} -- (b);
+            \draw [fermion] (b) -- (f4) node[below right] {$\bar{t}$};
+          \end{feynman}
+        \end{tikzpicture}
+      }
+      \caption{Gluon-gluon fusion}
+    \end{subfigure}\hspace{1.5cm}%
+    \begin{subfigure}[b]{0.33\textwidth}
+      \centering
+      \resizebox{\textwidth}{!}{%
+        \begin{tikzpicture}
+          \begin{feynman}
+            \coordinate (a) at (-0.6, 0);
+            \coordinate (b) at (0.6, 0);
+            \coordinate (f1) at (-1.6, 1.0);
+            \coordinate (f3) at (1.6, 1.0);
+            \coordinate (f2) at (-1.6, -1.0);
+            \coordinate (f4) at (1.6, -1.0);
+
+            \draw [fermion] (f1) node[above left] {$q$} -- (a);
+            \draw [fermion] (a) -- (f2) node[below left] {$\bar{q}$};
+            \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
+            \draw [fermion] (f3) node[above right] {$t$} -- (b);
+            \draw [fermion] (b) -- (f4) node[below right] {$\bar{t}$};
+          \end{feynman}
+        \end{tikzpicture}
+      }
+      \caption{$q\bar{q}$ annihilation}
+    \end{subfigure}
+    \caption{Example LO Feynman diagrams for $t\bar{t}$ production.}
+  \end{figure}
 \end{frame}
 
 
@@ -65,7 +115,7 @@
   \begin{figure}[htbp]
     \centering
     % ========== t-channel ==========
-    \begin{subfigure}[b]{0.31\textwidth}
+    \begin{subfigure}[b]{0.33\textwidth}
       \centering
       \resizebox{\textwidth}{!}{%
       \begin{tikzpicture}
@@ -89,7 +139,7 @@
       \label{subfig:tchan}
     \end{subfigure}\hfill%
     % ========== s-channel ==========
-    \begin{subfigure}[b]{0.31\textwidth}
+    \begin{subfigure}[b]{0.33\textwidth}
       \centering
       \resizebox{\textwidth}{!}{
         \begin{tikzpicture}
@@ -113,7 +163,7 @@
       \label{subfig:schan}
     \end{subfigure}\hfill%
     % ========== tW-channel ==========
-    \begin{subfigure}[b]{0.31\textwidth}
+    \begin{subfigure}[b]{0.33\textwidth}
       \centering
       \resizebox{\textwidth}{!}{
         \begin{tikzpicture}
@@ -162,12 +212,12 @@
     \item Sensitive to top quark electric charge and electromagnetic coupling.
     \item Offers sensitivity to BSM phenomena at LO in perturbative QCD.
     \item Photon can come from initial state radiation (ISR), intermediate state particles (e.g. top quark) (dominant), or final state radiation (FSR) from top decay products.
-    \item Charge asymmetry in $t\bar{t}\gamma$ production due to interference between ISR and intermediate state diagrams.
+    \item Charge asymmetry due to interference between ISR and top quark radiation.
   \end{itemize}
   \begin{figure}[htbp]
     \centering
     % ========== 1. Initial State Radiation (ISR) ==========
-    \begin{subfigure}[b]{0.31\textwidth}
+    \begin{subfigure}[b]{0.33\textwidth}
       \centering
       \resizebox{\textwidth}{!}{%
         \begin{tikzpicture}
@@ -184,7 +234,7 @@
             \draw [fermion] (f1) node[above left] {$q$} -- (a);
             \draw [fermion] (a) -- (f2) node[below left] {$\bar{q}$};
             \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
-            \draw [fermion] (f3) node[above right] {$t$} -- (b);
+            \draw [fermion] (f3) node[above right] {$\bar{t}$} -- (b);
             \draw [fermion] (b) -- (f4) node[below right] {$t$};
             \draw [photon]  (gamma1) -- (gamma2) node[above=2pt] {$\gamma$};
           \end{feynman}
@@ -194,7 +244,7 @@
       \label{subfig:ttgamma_isr}
     \end{subfigure}\hfill%
     % ========== 2. Top Radiation (Main signal) ==========
-    \begin{subfigure}[b]{0.31\textwidth}
+    \begin{subfigure}[b]{0.33\textwidth}
       \centering
       \resizebox{\textwidth}{!}{%
         \begin{tikzpicture}
@@ -211,7 +261,7 @@
             \draw [gluon] (f1) node[above left] {$g$} -- (a);
             \draw [gluon] (a) -- (f2) node[below left] {$g$};
             \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
-            \draw [fermion] (f3) node[above right] {$t$} -- (b);
+            \draw [fermion] (f3) node[above right] {$\bar{t}$} -- (b);
             \draw [fermion] (b) -- (f4) node[below right] {$t$};
             \draw [photon]  (gamma1) -- (gamma2) node[above=2pt] {$\gamma$};
           \end{feynman}
@@ -221,7 +271,7 @@
       \label{subfig:ttgamma_top}
     \end{subfigure}\hfill%
     % ========== 3. Decay Radiation ==========
-    \begin{subfigure}[b]{0.31\textwidth}
+    \begin{subfigure}[b]{0.33\textwidth}
       \centering
       \resizebox{\textwidth}{!}{%
         \begin{tikzpicture}
@@ -237,7 +287,7 @@
 
             \draw [fermion] (f1) node[left] {$t$} -- (v1);
             \draw [fermion] (v1) -- (f2) node[right] {$b$};
-            \draw [boson]   (v1) -- node[above=2pt] {$W$} (v2);
+            \draw [boson]   (v1) -- node[above left=2pt] {$W$} (v2);
             \draw [fermion] (f3) node[right] {$\nu_\ell^+$} -- (v2) ;
             \draw [fermion] (v2) -- (f4) node[right] {$\ell$};
             \draw [photon, bend right=45] (gamma1) to (gamma2) node[right] {$\gamma$};
@@ -252,13 +302,23 @@
   \end{figure}
 \end{frame}
 
+\begin{frame}{$t\bar{t}\gamma$ Cross Section}
+  \begin{itemize}
+    \item Fiducial cross section measured at \qty{137(8)}{\femto\barn}, and measured at \qty{56(5)}{\femto\barn} when only considering photons from ISR and top quark radiation. 
+    \item Both in agreement with SM prediction.
+    \item Two lepton final states considered.
+    \item CMS Collaboration, Run 2 of LHC, $\sqrt{s} = \SI{13}{\tera\electronvolt}$, $L_{int} = \SI{140}{\per\femto\barn}$
+  \end{itemize}
+  {\tiny \color{gray} CMS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP04(2026)086}{JHEP 04 (2026) 086}} [\href{https://arxiv.org/abs/2511.01995v2}{\text{arXiv:2511.01995}}]}
+\end{frame}
+
 
 % ==================== TTBAR W ====================
 \begin{frame}{$t\bar{t}W$}
   \begin{itemize}
     \item At leading order, only produced through quark-antiquark annihilation.
     \item Sensitive to top quark interaction with electroweak bosons. 
-    \item 
+    \item Noticable difference in production rates of $t\bar{t}W^+$ and $t\bar{t}W^-$ due to differing abundances of $u\bar{d}$ and $d\bar{u}$ states in main LO production channels.
   \end{itemize}
   \begin{figure}[htbp]
     \centering
@@ -278,7 +338,7 @@
         \draw [fermion] (a) -- (f2prime);
         \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
         \draw [fermion] (b) -- (f3) node[above right] {$t$};
-        \draw [fermion] (f4) node[below right] {$t$} -- (b);
+        \draw [fermion] (f4) node[below right] {$\bar{t}$} -- (b);
         \draw [boson]   (f2prime) -- (f5) node[below right] {$W$};
       \end{feynman}
     \end{tikzpicture}%
@@ -299,7 +359,7 @@
       \item Ratio of $\sigma_{t\bar{t}W^+}$ to $\sigma_{t\bar{t}W^-}$ measured to be $1.61 \pm 0.15\,\text{(stat)}^{+0.07}_{-0.05}\,\text{(syst)}$, consistent with SM within 2$\sigma$.
     \end{itemize}
   \end{itemize}
-    {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2023)219}{JHEP 07 (2023) 219}} [\href{https://arxiv.org/abs/2208.06485v2}{\text{arXiv:2208.06485v2}}]}
+    {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2023)219}{JHEP 07 (2023) 219}} [\href{https://arxiv.org/abs/2208.06485v2}{\text{arXiv:2208.06485}}]}
 \end{frame}
 
 
@@ -328,7 +388,7 @@
         \draw [fermion] (a) -- (f2prime);
         \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
         \draw [fermion] (b) -- (f3) node[above right] {$t$};
-        \draw [fermion] (f4) node[below right] {$t$} -- (b);
+        \draw [fermion] (f4) node[below right] {$\bar{t}$} -- (b);
         \draw [boson]   (f2prime) -- (f5) node[below right] {$Z$};        
       \end{feynman}
     \end{tikzpicture}
@@ -336,7 +396,7 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{$t\bar{t}+Z$ Cross Section}
+\begin{frame}{$t\bar{t}Z$ Cross Section}
   \begin{itemize}
     \item Inclusive cross section measured at $\sigma_{t\bar{t}Z} = 0.86 \pm 0.04 (\text{stat}) \pm 0.04 (\text{syst})$ pb.
     \begin{itemize}
@@ -345,7 +405,7 @@
     \item In agreement with Standard Model NLO + NNLL prediction.
     \item Two, three and four lepton final states considered.
   \end{itemize}
-  {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2024)163}{JHEP 07 (2024) 163}} [\href{https://arxiv.org/abs/2312.04450v3}{\texttt{arXiv:2312.04450v3}}]}
+  {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2024)163}{JHEP 07 (2024) 163}} [\href{https://arxiv.org/abs/2312.04450v3}{\texttt{arXiv:2312.04450}}]}
 \end{frame}
 
 \end{document}
