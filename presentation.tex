@@ -6,6 +6,7 @@
 \sisetup{uncertainty-mode = separate}
 \DeclareSIUnit\barn{b}
 \setbeamertemplate{caption}[numbered]
+\usepackage{xcolor}
 
 \title{Top + X Measurements with EFT Interpretation at ATLAS}
 \author{Abigail McIntosh}
@@ -202,6 +203,7 @@
       \item $t\bar{t}\gamma$ (top quark pair with photon)
       \item $t\bar{t}H$ (top quark pair with Higgs boson)
     \end{itemize}
+    \item All cross-section measurements taken from ATLAS or CMS at LHC Run 2, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} \approx \qty{140}{\per\femto\barn}$.
   \end{itemize}
 \end{frame}
 
@@ -304,10 +306,9 @@
 
 \begin{frame}{$t\bar{t}\gamma$ Cross Section}
   \begin{itemize}
-    \item Fiducial cross section measured at \qty{137(8)}{\femto\barn}, and measured at \qty{56(5)}{\femto\barn} when only considering photons from ISR and top quark radiation. 
+    \item CMS: Fiducial cross section \textcolor{blue}{$\sigma_{t\bar{t}\gamma} = \qty{137 \pm 8}{\femto\barn}$}, measured at \textcolor{blue}{$\sigma_{t\bar{t}\gamma} = \qty{56 \pm 5}{\femto\barn}$} when only considering photons from ISR and top quark radiation. 
     \item Both in agreement with SM prediction.
-    \item Two lepton final states considered.
-    \item CMS Collaboration, Run 2 of LHC, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} = \qty{140}{\per\femto\barn}$
+    \item Two-lepton final states considered.
   \end{itemize}
   {\tiny \color{gray} CMS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP04(2026)086}{JHEP 04 (2026) 086}} [\href{https://arxiv.org/abs/2511.01995v2}{\text{arXiv:2511.01995}}]}
 \end{frame}
@@ -348,18 +349,17 @@
 
 \begin{frame}{$t\bar{t}W$ Cross Section}
   \begin{itemize}
-    \item ATLAS: Inclusive cross section $\sigma_{t\bar{t}W} = \qty{880(80)}{\femto\barn}$, in agreement with SM prediction within 1.4$\sigma$.
+    \item ATLAS: Inclusive cross section \textcolor{blue}{$\sigma_{t\bar{t}W} = \qty{880 \pm 80}{\femto\barn}$}, in agreement with SM prediction within 1.4$\sigma$.
     \begin{itemize}
-      \item Run 2 of LHC, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} = \qty{140}{\per\femto\barn}$.
       \item Relative charge asymmetry also agrees with SM prediction.
     \end{itemize}
-    \item CMS: Inclusive cross section $\sigma_{t\bar{t}W} = 868 \pm 40 \text{(stat)} \pm 51 \text{(syst)} \unit{\femto\barn}$, within 2$\sigma$ of SM prediction. 
+    \item CMS: Inclusive cross section \textcolor{blue}{$\sigma_{t\bar{t}W} = 868 \pm 40 \text{(stat)} \pm 51 \text{(syst)} \unit{\femto\barn}$}, within 2$\sigma$ of SM prediction. 
     \begin{itemize}
-      \item Run 2 of LHC, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} = \qty{138}{\per\femto\barn}$.
       \item Ratio of $\sigma_{t\bar{t}W^+}$ to $\sigma_{t\bar{t}W^-}$ measured to be $1.61 \pm 0.15\,\text{(stat)}^{+0.07}_{-0.05}\,\text{(syst)}$, consistent with SM within 2$\sigma$.
     \end{itemize}
   \end{itemize}
-    {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2023)219}{JHEP 07 (2023) 219}} [\href{https://arxiv.org/abs/2208.06485v2}{\text{arXiv:2208.06485}}]}
+  {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP05(2024)131}{JHEP 05 (2024) 131}} [\href{https://arxiv.org/abs/2401.05299v2}{\text{arXiv:2401.05299}}]} \\
+  {\tiny \color{gray} CMS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2023)219}{JHEP 07 (2023) 219}} [\href{https://arxiv.org/abs/2208.06485v2}{\text{arXiv:2208.06485}}]}
 \end{frame}
 
 
@@ -398,7 +398,7 @@
 
 \begin{frame}{$t\bar{t}Z$ Cross Section}
   \begin{itemize}
-    \item Inclusive cross section measured at $\sigma_{t\bar{t}Z} = 0.86 \pm 0.04\,\text{(stat)} \pm 0.04\,\text{(syst)}\unit{\pico\barn}$.
+    \item Inclusive cross section measured at \textcolor{blue}{$\sigma_{t\bar{t}Z} = 0.86 \pm 0.04\,\text{(stat)} \pm 0.04\,\text{(syst)}\unit{\pico\barn}$}.
     \begin{itemize}
       \item ATLAS, LHC Run 2, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_\text{int} = \qty{140}{\per\femto\barn}$.
     \end{itemize}
@@ -441,7 +441,7 @@
           \end{feynman}
         \end{tikzpicture}%
       }    
-      \caption{Helloooo}
+      \caption{$t$-channel $gg$ fusion}
     \end{subfigure}\hfill%
     % ========== 2. Process 2 ==========
     \begin{subfigure}[b]{0.33\textwidth}
@@ -467,7 +467,7 @@
           \end{feynman}
         \end{tikzpicture}%
       }
-      \caption{Goodbyeeee}
+      \caption{$s$-channel $gg$ fusion}
     \end{subfigure}\hfill%
     % ========== 3. Process 3 ===========
     \begin{subfigure}[b]{0.33\textwidth}
@@ -493,7 +493,7 @@
           \end{feynman}
         \end{tikzpicture}%
       }
-      \caption{Don't know what to call this one}
+      \caption{$q\bar{q}$ annihilation}
     \end{subfigure}
     \caption{Example LO Feynman diagrams for $t\bar{t}H$ production.}
   \end{figure}
@@ -505,7 +505,7 @@
     \begin{itemize}
       \item All results compatible with SM predictions.
     \end{itemize}
-    \item Analysis of six multilepton channels peformed by ATLAS in 2026, with inclusive cross section measured at $\sigma_{t\bar{t}H} = (321\,^{+102}_{-99})\,\unit{\femto\barn}$, within 2$\sigma$ of SM prediction.
+    \item Analysis of six multilepton channels peformed by ATLAS in 2026, with inclusive cross section measured at \textcolor{blue}{$\sigma_{t\bar{t}H} = (321\,^{+102}_{-99})\,\unit{\femto\barn}$}, within 2$\sigma$ of SM prediction.
     \begin{itemize}
       \item ATLAS, LHC Run 2, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_\text{int} = \qty{140}{\per\femto\barn}$.
     \end{itemize}
@@ -521,4 +521,34 @@
     \caption{Observed best fit values of $t\bar{t}H$ cross-section relative to SM prediction for each lepton channel, and combined result.}
   \end{figure}
 \end{frame}
+
+
+% ==================== EFT INTERPRETATION ====================
+\begin{frame}{Effective Field Theory}
+  \begin{itemize}
+    \item Effective field theory (EFT) provides a model-independent framework allowing for for the study of BSM phemomena at currently unreachable energy scales (denoted $\Lambda$).
+    \item Allows properties of high-energy BSM physics at scale $\Lambda$ to be related with low-enerrgy measurements.
+    \item The dimensionless Wilson coefficients $c_i^{(d)}$ are used to parameterise the strength of the new physics effects.
+  \end{itemize}  
+  
+\end{frame}
+
+\begin{frame}{SMEFT}
+  \begin{itemize}
+    \item SMEFT extends the SM Lagrangian with higher-dimensional (primarily dimension-6) operators, suppressed by powers of $\Lambda$.
+    \item In SMEFT, typically look at dimension-6 operators,
+    \begin{itemize}
+      \item SM contains dimension-2 and dimension-4 operators
+      \item Dimension-5 operators provide a mechanism for neutrino mixing
+    \end{itemize}
+    \item The Warsaw basis is a commonly used non-redundant set of dimension-6 operators.
+  \end{itemize}
+  \begin{block}{SMEFT Lagrangian}
+    \begin{equation}
+      \mathcal{L}_\text{SMEFT} = \mathcal{L}_\text{SM} + \sum_i \frac{c_i^{(5)}}{\Lambda} \mathcal{O}_i^{(5)} + \sum_i \frac{c_i^{(6)}}{\Lambda^2} \mathcal{O}_i^{(6)} + ...
+    \end{equation}
+  \end{block}
+  {\tiny \color{gray} University of Warsaw, \textbf{\href{https://doi.org/10.1007/JHEP10(2010)085}{JHEP 10 (2010) 085}} [\href{https://arxiv.org/abs/1008.4884v3}{\texttt{arXiv:1008.4884}}]}
+\end{frame}
+
 \end{document}
