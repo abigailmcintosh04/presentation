@@ -307,7 +307,7 @@
     \item Fiducial cross section measured at \qty{137(8)}{\femto\barn}, and measured at \qty{56(5)}{\femto\barn} when only considering photons from ISR and top quark radiation. 
     \item Both in agreement with SM prediction.
     \item Two lepton final states considered.
-    \item CMS Collaboration, Run 2 of LHC, $\sqrt{s} = \SI{13}{\tera\electronvolt}$, $L_{int} = \SI{140}{\per\femto\barn}$
+    \item CMS Collaboration, Run 2 of LHC, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} = \qty{140}{\per\femto\barn}$
   \end{itemize}
   {\tiny \color{gray} CMS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP04(2026)086}{JHEP 04 (2026) 086}} [\href{https://arxiv.org/abs/2511.01995v2}{\text{arXiv:2511.01995}}]}
 \end{frame}
@@ -348,14 +348,14 @@
 
 \begin{frame}{$t\bar{t}W$ Cross Section}
   \begin{itemize}
-    \item ATLAS: Inclusive cross section $\sigma_{t\bar{t}W} = 880 \pm 80$fb, in agreement with SM prediction within 1.4$\sigma$.
+    \item ATLAS: Inclusive cross section $\sigma_{t\bar{t}W} = \qty{880(80)}{\femto\barn}$, in agreement with SM prediction within 1.4$\sigma$.
     \begin{itemize}
-      \item Run 2 of LHC, $\sqrt{s} = \SI{13}{\tera\electronvolt}$, $L_{int} = \SI{140}{\per\femto\barn}$.
+      \item Run 2 of LHC, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} = \qty{140}{\per\femto\barn}$.
       \item Relative charge asymmetry also agrees with SM prediction.
     \end{itemize}
-    \item CMS: Inclusive cross section $\sigma_{t\bar{t}W} = 868 \pm 40 (\text{stat}) \pm 51 (\text{syst})$ fb, within 2$\sigma$ of SM prediction. 
+    \item CMS: Inclusive cross section $\sigma_{t\bar{t}W} = 868 \pm 40 \text{(stat)} \pm 51 \text{(syst)} \unit{\femto\barn}$, within 2$\sigma$ of SM prediction. 
     \begin{itemize}
-      \item Run 2 of LHC, $\sqrt{s} = \SI{13}{\tera\electronvolt}$, $L_{int} = \SI{138}{\per\femto\barn}$.
+      \item Run 2 of LHC, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} = \qty{138}{\per\femto\barn}$.
       \item Ratio of $\sigma_{t\bar{t}W^+}$ to $\sigma_{t\bar{t}W^-}$ measured to be $1.61 \pm 0.15\,\text{(stat)}^{+0.07}_{-0.05}\,\text{(syst)}$, consistent with SM within 2$\sigma$.
     \end{itemize}
   \end{itemize}
@@ -370,7 +370,7 @@
     \item Deviations from SM predictions could indicate new effects in electroweak symmetry breaking.
   \end{itemize}
 
-  \begin{figure}
+  \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}
       \begin{feynman}
@@ -398,9 +398,9 @@
 
 \begin{frame}{$t\bar{t}Z$ Cross Section}
   \begin{itemize}
-    \item Inclusive cross section measured at $\sigma_{t\bar{t}Z} = 0.86 \pm 0.04 (\text{stat}) \pm 0.04 (\text{syst})$ pb.
+    \item Inclusive cross section measured at $\sigma_{t\bar{t}Z} = 0.86 \pm 0.04\,\text{(stat)} \pm 0.04\,\text{(syst)}\unit{\pico\barn}$.
     \begin{itemize}
-      \item LHC Run 2, $\sqrt{s} = \SI{13}{\tera\electronvolt}$, $L_\text{int} = \SI{140}{\per\femto\barn}$.
+      \item ATLAS, LHC Run 2, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_\text{int} = \qty{140}{\per\femto\barn}$.
     \end{itemize}
     \item In agreement with Standard Model NLO + NNLL prediction.
     \item Two, three and four lepton final states considered.
@@ -408,4 +408,117 @@
   {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2024)163}{JHEP 07 (2024) 163}} [\href{https://arxiv.org/abs/2312.04450v3}{\texttt{arXiv:2312.04450}}]}
 \end{frame}
 
+
+% ==================== TTBAR H ====================
+\begin{frame}[fragile]{$t\bar{t}H$}
+  \begin{itemize}
+    \item Allows more direct measurement of top quark Yukawa coupling.
+  \end{itemize}
+  \begin{figure}[htbp]
+    \centering
+    % ========== 1. Process 1 ==========
+    \begin{subfigure}[b]{0.33\textwidth}
+      \centering
+      \resizebox{\textwidth}{!}{%
+        \begin{tikzpicture}
+          \begin{feynman}
+            \coordinate (g1) at (-1.6, 1.0);
+            \coordinate (g2) at (-1.6, -1.0);
+            \coordinate (v1) at (0, 0.6);
+            \coordinate (v2) at (0, -0.6);
+            \coordinate (h1) at (0.4, 0);
+            \coordinate (t1) at (1.6, 1.0);
+            \coordinate (t2) at (1.6, -1.0);
+            \coordinate (h2) at (1.6, 0);
+
+            \draw [gluon] (g1) node[above left] {$g$} -- (v1);
+            \draw [gluon] (g2) node[below left] {$g$} -- (v2);
+            \draw [fermion] (v2) -- (h1);
+            \draw [fermion] (h1) -- (v1);
+            \draw [boson] (h1) -- (h2) node[right] {$H$};
+            \draw [fermion] (v1) -- (t1) node[above right] {$t$};
+            \draw [fermion] (t2) node[below right] {$\bar{t}$} -- (v2);
+          \end{feynman}
+        \end{tikzpicture}%
+      }    
+      \caption{Helloooo}
+    \end{subfigure}\hfill%
+    % ========== 2. Process 2 ==========
+    \begin{subfigure}[b]{0.33\textwidth}
+      \centering
+      \resizebox{\textwidth}{!}{%
+        \begin{tikzpicture}
+          \begin{feynman}
+            \coordinate (a) at (-0.6, 0);
+            \coordinate (b) at (0.6, 0);
+            \coordinate (f1) at (-1.6, 1.0);
+            \coordinate (f3) at (1.6, 1.0);
+            \coordinate (f2) at (-1.6, -1.0);
+            \coordinate (f4) at (1.6, -1.0);
+            \coordinate (gamma1) at (0.9, 0.3);
+            \coordinate (gamma2) at (1.6, -0.4);
+
+            \draw [gluon] (f1) node[above left] {$g$} -- (a);
+            \draw [gluon] (a) -- (f2) node[below left] {$g$};
+            \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
+            \draw [fermion] (f3) node[above right] {$\bar{t}$} -- (b);
+            \draw [fermion] (b) -- (f4) node[below right] {$t$};
+            \draw [boson]  (gamma1) -- (gamma2) node[above=2pt] {$H$};
+          \end{feynman}
+        \end{tikzpicture}%
+      }
+      \caption{Goodbyeeee}
+    \end{subfigure}\hfill%
+    % ========== 3. Process 3 ===========
+    \begin{subfigure}[b]{0.33\textwidth}
+      \centering
+      \resizebox{\textwidth}{!}{%
+        \begin{tikzpicture}
+          \begin{feynman}
+            \coordinate (a) at (-0.6, 0);
+            \coordinate (b) at (0.6, 0);
+            \coordinate (f1) at (-1.6, 1.0);
+            \coordinate (f3) at (1.6, 1.0);
+            \coordinate (f2) at (-1.6, -1.0);
+            \coordinate (f4) at (1.6, -1.0);
+            \coordinate (gamma1) at (0.9, 0.3);
+            \coordinate (gamma2) at (1.6, -0.4);
+
+            \draw [fermion] (f1) node[above left] {$q$} -- (a);
+            \draw [fermion] (a) -- (f2) node[below left] {$\bar{q}$};
+            \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
+            \draw [fermion] (f3) node[above right] {$\bar{t}$} -- (b);
+            \draw [fermion] (b) -- (f4) node[below right] {$t$};
+            \draw [boson]  (gamma1) -- (gamma2) node[above=2pt] {$H$};
+          \end{feynman}
+        \end{tikzpicture}%
+      }
+      \caption{Don't know what to call this one}
+    \end{subfigure}
+    \caption{Example LO Feynman diagrams for $t\bar{t}H$ production.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{$t\bar{t}H$ Cross Section}
+  \begin{itemize}
+    \item $t\bar{t}H$ production observed in many different Higgs decay channels, including $H \rightarrow b\bar{b}$, $H \rightarrow \gamma\gamma$, $H \rightarrow ZZ^* \rightarrow 4\ell$, and $H \rightarrow \tau^+\tau^-$.
+    \begin{itemize}
+      \item All results compatible with SM predictions.
+    \end{itemize}
+    \item Analysis of six multilepton channels peformed by ATLAS in 2026, with inclusive cross section measured at $\sigma_{t\bar{t}H} = (321\,^{+102}_{-99})\,\unit{\femto\barn}$, within 2$\sigma$ of SM prediction.
+    \begin{itemize}
+      \item ATLAS, LHC Run 2, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_\text{int} = \qty{140}{\per\femto\barn}$.
+    \end{itemize}
+    \item Channels considered: $2\ell SS0\tau_{had}$, $3\ell 0\tau_{had}$, $4\ell$, $2\ell SS1\tau_{had}$, $1\ell2\tau_{had}$, $2\ell2\tau_{had}$. 
+  \end{itemize}
+  {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP05(2026)183}{JHEP 05 (2026) 183}} [\href{https://arxiv.org/abs/2510.23755v2}{\texttt{arXiv:2510.23755}}]}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/fig_12.png}
+    \caption{Observed best fit values of $t\bar{t}H$ cross-section relative to SM prediction for each lepton channel, and combined result.}
+  \end{figure}
+\end{frame}
 \end{document}
