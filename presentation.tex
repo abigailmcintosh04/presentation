@@ -527,28 +527,31 @@
 \begin{frame}{Effective Field Theory}
   \begin{itemize}
     \item Effective field theories (EFT) provide a model-independent framework allowing for for the study of BSM phemomena at currently unreachable energy scales (denoted $\Lambda$).
-    \item Allows properties of high-energy BSM physics at scale $\Lambda$ to be related with low-enerrgy measurements.
+    \item Allows properties of high-energy BSM physics at scale $\Lambda$ to be related with low-energy measurements.
     \item The dimensionless Wilson coefficients $c_i^{(d)}$ are used to parameterise the strength of the new physics effects.
   \end{itemize}  
-  
+  \begin{block}{EFT Lagrangian}
+    \begin{equation}
+      \mathcal{L} = \mathcal{L}_\text{SM} + \sum_{d=5}^{\infty} \sum_i \frac{c_i^{(d)}}{\Lambda^{d-4}} \mathcal{O}_i^{(d)}
+    \end{equation}
+    where $d$ is mass dimension, $c_i^{(d)}$ are the Wilson coefficients, $\Lambda$ is the energy scale of new physics, and $\mathcal{O}_i^{(d)}$ are the higher-dimensional operators.
+  \end{block}
 \end{frame}
 
 \begin{frame}{SMEFT}
   \begin{itemize}
     \item SMEFT extends the SM Lagrangian with higher-dimensional (primarily dimension-6) operators, suppressed by powers of $\Lambda$.
-    \item In SMEFT, typically look at dimension-6 operators,
+    \item In SMEFT, typically look at dimension-6 operators.
     \begin{itemize}
-      \item SM contains dimension-2 and dimension-4 operators
-      \item Dimension-5 operators provide a mechanism for neutrino mixing
+      \item SM contains dimension-2 and dimension-4 operators.
+      \item Dimension-5 operators provide a mechanism for neutrino mixing.
     \end{itemize}
     \item The Warsaw basis is a commonly used non-redundant set of dimension-6 operators.
+    \begin{itemize}
+      \item Many of them, but only a few are relevant for top quark physics.
+    \end{itemize}
     \item Preserves the SM gauge group $SU(3)_C \times SU(2)_L \times U(1)_Y$.
   \end{itemize}
-  \begin{block}{SMEFT Lagrangian}
-    \begin{equation}
-      \mathcal{L}_\text{SMEFT} = \mathcal{L}_\text{SM} + \sum_i \frac{c_i^{(5)}}{\Lambda} \mathcal{O}_i^{(5)} + \sum_i \frac{c_i^{(6)}}{\Lambda^2} \mathcal{O}_i^{(6)} + ...
-    \end{equation}
-  \end{block}
   {\tiny \color{gray} University of Warsaw, \textbf{\href{https://doi.org/10.1007/JHEP10(2010)085}{JHEP 10 (2010) 085}} [\href{https://arxiv.org/abs/1008.4884v3}{\texttt{arXiv:1008.4884}}]}
 \end{frame}
 
@@ -557,6 +560,27 @@
     \item SMEFT operators can modify SM predictions of rates and kinematic distributions of certain processes.
     \item SMEFT operators can also allow SM-forbidden processes to occur.
   \end{itemize}
+\end{frame}
+
+\begin{frame}{EFT Interpretations of top + X}
+  \begin{column}{0.5\textwidth}
+    \begin{block}{Detector-level fit}
+      \begin{itemize}
+        \item Paramaterise predictions of EFT contributions directly at detector level.
+        \item Simplest approach, but inflexible in reinterpetation of results.
+      \end{itemize}
+    \end{block}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \begin{block}{Unfolding}
+      \begin{itemize}
+        \item Estimate EFT contributions by undoing detector effects to return to particle/parton level.
+        \item Simple to reinterpret as full detector simulation not required.
+        \item Some EFT coefficients can impact signal and background processes, meaning traditional separation may require modification.
+      \end{itemize}
+    \end{block}
+    
+  \end{column}
 \end{frame}
 
 
