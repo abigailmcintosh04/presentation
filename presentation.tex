@@ -204,6 +204,7 @@
       \item $t\bar{t}H$ (top quark pair with Higgs boson)
     \end{itemize}
     \item All cross-section measurements taken from ATLAS or CMS at LHC Run 2, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} \approx \qty{140}{\per\femto\barn}$.
+    \item Deviations from SM predictions could indicate new effects in electroweak symmetry breaking.
   \end{itemize}
 \end{frame}
 
@@ -214,7 +215,7 @@
     \item Sensitive to top quark electric charge and electromagnetic coupling.
     \item Offers sensitivity to BSM phenomena at LO in perturbative QCD.
     \item Photon can come from initial state radiation (ISR), intermediate state particles (e.g. top quark) (dominant), or final state radiation (FSR) from top decay products.
-    \item Charge asymmetry due to interference between ISR and top quark radiation.
+    \item Forward-backward charge asymmetry due to interference between ISR and top quark radiation.
   \end{itemize}
   \begin{figure}[htbp]
     \centering
@@ -353,7 +354,7 @@
     \begin{itemize}
       \item Relative charge asymmetry also agrees with SM prediction.
     \end{itemize}
-    \item CMS: Inclusive cross section \textcolor{blue}{$\sigma_{t\bar{t}W} = 868 \pm 40 \text{(stat)} \pm 51 \text{(syst)} \unit{\femto\barn}$}, within 2$\sigma$ of SM prediction. 
+    \item CMS: Inclusive cross section \textcolor{blue}{$\sigma_{t\bar{t}W} = 868 \pm 40\,\text{(stat)}\,\pm 51\,\text{(syst)}\,\unit{\femto\barn}$}, within 2$\sigma$ of SM prediction. 
     \begin{itemize}
       \item Ratio of $\sigma_{t\bar{t}W^+}$ to $\sigma_{t\bar{t}W^-}$ measured to be $1.61 \pm 0.15\,\text{(stat)}^{+0.07}_{-0.05}\,\text{(syst)}$, consistent with SM within 2$\sigma$.
     \end{itemize}
@@ -367,7 +368,8 @@
 \begin{frame}{$t\bar{t}Z$}
   \begin{itemize}
     \item At leading order, produced through gluon-gluon fusion (dominant mechanism at high energies) or quark-antiquark annihilation.
-    \item Deviations from SM predictions could indicate new effects in electroweak symmetry breaking.
+    \item Coupling of top quark to Z boson not well constrained, sensitive to BSM physics.
+    \item $t\bar{t}Z$ is an irreducible background in other top analyses.
   \end{itemize}
 
   \begin{figure}[htbp]
@@ -559,28 +561,52 @@
   \begin{itemize}
     \item SMEFT operators can modify SM predictions of rates and kinematic distributions of certain processes.
     \item SMEFT operators can also allow SM-forbidden processes to occur.
+    \item Precise top measurements allows for constraints to be placed on the relevant Wilson coefficients of the SMEFT operators. 
   \end{itemize}
+  {\tiny \color{gray} J. Wilson for ATLAS \& CMS, TOP2022 \textbf{\href{https://conference.ippp.dur.ac.uk/event/925/contributions/5716/}{(Indico)}}}
 \end{frame}
 
+
 \begin{frame}{EFT Interpretations of top + X}
-  \begin{column}{0.5\textwidth}
-    \begin{block}{Detector-level fit}
-      \begin{itemize}
-        \item Paramaterise predictions of EFT contributions directly at detector level.
-        \item Simplest approach, but inflexible in reinterpetation of results.
-      \end{itemize}
-    \end{block}
-  \end{column}
-  \begin{column}{0.5\textwidth}
-    \begin{block}{Unfolding}
-      \begin{itemize}
-        \item Estimate EFT contributions by undoing detector effects to return to particle/parton level.
-        \item Simple to reinterpret as full detector simulation not required.
-        \item Some EFT coefficients can impact signal and background processes, meaning traditional separation may require modification.
-      \end{itemize}
-    \end{block}
-    
-  \end{column}
+  \begin{columns}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Detector-level fit}
+        \begin{itemize}
+          \item Paramaterise predictions of EFT contributions directly at detector level.
+          \item Simplest approach as long as bins are statistically independent, and all detector-level effects are accounted for.
+          \item Inflexible in reinterpetation of results, as any update in theory requires full rerun of detector simulation.
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Unfolding}
+        \begin{itemize}
+          \item Estimate EFT contributions by undoing detector effects to return to particle/parton level.
+          \item Simple to reinterpret as full detector simulation not required.
+          \item Some EFT coefficients can impact signal and background processes, meaning traditional separation of the two may require modification. 
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+  {\tiny \color{gray} ATLAS Collaboration, \href{https://cds.cern.ch/record/2872789/}{\texttt{ATL-PHYS-PUB-2023-030}}}
+\end{frame}
+
+
+\begin{frame}{Future Outlook}
+  \begin{itemize}
+    \item LHC Run 3 increased integrated luminosity ($\sim \qty{355}{\per\femto\barn}$) allows for more precise top quark measurements and makes it easier to probe rare processes.
+    \item Machine learning techniques.
+    \begin{itemize}
+      \item Identify and separate signal processes from SM backgrounds.
+      \item Suppress migrations in unfolding.
+      \item Stronger constraints on dimension-six operators through improved scaling of likelihood ratio estimations.
+      \item Integration of unbinned multivariate observables into SMEFT fits, preventing loss of information due to binning.
+    \end{itemize}
+  \end{itemize}
+  {\tiny \color{gray} NIKHEF, \textbf{\href{https://doi.org/10.1007/JHEP03(2023)033}{JHEP 03 (2023) 033}} [\href{https://arxiv.org/abs/2211.02058v2}{\texttt{arXiv:2211.02058}}]} \\
+  {\tiny \color{gray} J. Brehmer et al., \textbf{\href{https://doi.org/10.1103/PhysRevLett.121.111801}{Phys. Rev. Lett. 121 (2018) 111801}} [\href{https://arxiv.org/abs/1805.00013v2}{\texttt{arXiv:1805.00013}}]} \\
+  {\tiny \color{gray} ATLAS Collaboration, \href{https://cds.cern.ch/record/2872789/}{\texttt{ATL-PHYS-PUB-2023-030}}}
+
 \end{frame}
 
 
