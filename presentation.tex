@@ -7,6 +7,8 @@
 \DeclareSIUnit\barn{b}
 \setbeamertemplate{caption}[numbered]
 \usepackage{xcolor}
+\usepackage{silence}
+\WarningFilter{tikz-feynman}{} % Suppresses all warnings issued by tikz-feynman
 
 \title{Top + X Measurements with EFT Interpretation at ATLAS}
 \author{Abigail McIntosh}
@@ -348,19 +350,36 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{$t\bar{t}W$ Cross Section}
+\begin{frame}{$t\bar{t}W$ Measurements}
   \begin{itemize}
-    \item ATLAS: Inclusive cross section \textcolor{blue}{$\sigma_{t\bar{t}W} = \qty{880 \pm 80}{\femto\barn}$}, in agreement with SM prediction within 1.4$\sigma$.
+    \item ATLAS: Inclusive cross section \textcolor{blue}{$\sigma_{t\bar{t}W} = \qty{880 \pm 80}{\femto\barn}$}.
     \begin{itemize}
-      \item Relative charge asymmetry also agrees with SM prediction.
+      \item $\sigma_{t\bar{t}W^+} / \sigma_{t\bar{t}W^-} = 1.96 \pm 0.22$.
     \end{itemize}
-    \item CMS: Inclusive cross section \textcolor{blue}{$\sigma_{t\bar{t}W} = 868 \pm 40\,\text{(stat)}\,\pm 51\,\text{(syst)}\,\unit{\femto\barn}$}, within 2$\sigma$ of SM prediction. 
+    \item CMS: Inclusive cross section \textcolor{blue}{$\sigma_{t\bar{t}W} = 868 \pm 40\,\text{(stat)}\,\pm 51\,\text{(syst)}\,\unit{\femto\barn}$}.
     \begin{itemize}
-      \item Ratio of $\sigma_{t\bar{t}W^+}$ to $\sigma_{t\bar{t}W^-}$ measured to be $1.61 \pm 0.15\,\text{(stat)}^{+0.07}_{-0.05}\,\text{(syst)}$, consistent with SM within 2$\sigma$.
+      \item $\sigma_{t\bar{t}W^+} / \sigma_{t\bar{t}W^-} = 1.61 \pm 0.15$.
     \end{itemize}
+    \item All measurements shown consistent with SM predictions within 2$\sigma$. 
   \end{itemize}
   {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP05(2024)131}{JHEP 05 (2024) 131}} [\href{https://arxiv.org/abs/2401.05299v2}{\text{arXiv:2401.05299}}]} \\
   {\tiny \color{gray} CMS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2023)219}{JHEP 07 (2023) 219}} [\href{https://arxiv.org/abs/2208.06485v2}{\text{arXiv:2208.06485}}]}
+\end{frame}
+
+\begin{frame}{$t\bar{t}W$ Measurements}
+  \begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+      \centering
+      \includegraphics[width=0.9\textwidth]{figures/ttw_xs.png}
+      \caption{\centering ATLAS and CMS $t\bar{t}W$ cross section data.}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+      \centering
+      \includegraphics[width=0.9\textwidth]{figures/ttw_ratio.png}
+      \caption{\centering ATLAS and CMS $t\bar{t}W$ W charge ratio data.}
+    \end{subfigure}
+  \end{figure}
 \end{frame}
 
 
@@ -374,27 +393,58 @@
 
   \begin{figure}[htbp]
     \centering
-    \begin{tikzpicture}
-      \begin{feynman}
-        \coordinate (a)  at (-0.6, 0);
-        \coordinate (b)  at (0.6, 0);
-        \coordinate (f1) at (-1.6, 1.0);
-        \coordinate (f3) at (1.6, 1.0);
-        \coordinate (f2prime) at (-1.1, -0.5);
-        \coordinate (f2) at (-1.6, -1.0);
-        \coordinate (f4) at (1.6, -1.0);
-        \coordinate (f5) at (-0.6, -1.0);
+    \begin{subfigure}[b]{0.33\textwidth}
+      \centering
+      \resizebox{\textwidth}{!}{
+        \begin{tikzpicture}
+          \begin{feynman}
+            \coordinate (f1) at (-1.6, 1.0);
+            \coordinate (f2) at (-1.6, -1.0);
+            \coordinate (v1) at (0, 0.6);
+            \coordinate (v2) at (0, -0.6);
+            \coordinate (f3) at (1.6, 1.0);
+            \coordinate (f4) at (1.6, -1.0);
+            \coordinate (f3prime) at (0.8, 0.8);
+            \coordinate (f5) at (1.6, 0.0);
 
-        \draw [fermion] (f1) node[above left] {$q$} -- (a) ;
-        \draw [fermion] (f2prime) -- (f2) node[below left] {$\bar{q}'$} ;
-        \draw [fermion] (a) -- (f2prime);
-        \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
-        \draw [fermion] (b) -- (f3) node[above right] {$t$};
-        \draw [fermion] (f4) node[below right] {$\bar{t}$} -- (b);
-        \draw [boson]   (f2prime) -- (f5) node[below right] {$Z$};        
-      \end{feynman}
-    \end{tikzpicture}
-    \caption{Dominant LO Feynman diagram for $t\bar{t}Z$ production (gluon-gluon fusion).}
+            \draw [gluon] (f1) node[above left] {$g$} -- (v1);
+            \draw [gluon] (f2) node[below left] {$g$} -- (v2);
+            \draw [fermion] (v2) -- (v1);
+            \draw [fermion] (f4) node[below right] {$\bar{t}$} -- (v2); 
+            \draw [fermion] (v1) -- (f3) node[above right] {$t$};
+            \draw [boson] (f3prime) -- (f5) node[right] {$Z$};
+          \end{feynman}
+        \end{tikzpicture}
+      }
+      \caption{Gluon-gluon fusion}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.33\textwidth}
+      \centering
+      \resizebox{\textwidth}{!}{%
+        \begin{tikzpicture}
+          \begin{feynman}
+            \coordinate (a)  at (-0.6, 0);
+            \coordinate (b)  at (0.6, 0);
+            \coordinate (f1) at (-1.6, 1.0);
+            \coordinate (f3) at (1.6, 1.0);
+            \coordinate (f2prime) at (-1.1, -0.5);
+            \coordinate (f2) at (-1.6, -1.0);
+            \coordinate (f4) at (1.6, -1.0);
+            \coordinate (f5) at (-0.6, -1.0);
+
+            \draw [fermion] (f1) node[above left] {$q$} -- (a) ;
+            \draw [fermion] (f2prime) -- (f2) node[below left] {$\bar{q}'$} ;
+            \draw [fermion] (a) -- (f2prime);
+            \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
+            \draw [fermion] (b) -- (f3) node[above right] {$t$};
+            \draw [fermion] (f4) node[below right] {$\bar{t}$} -- (b);
+            \draw [boson]   (f2prime) -- (f5) node[below right] {$Z$};        
+          \end{feynman}
+        \end{tikzpicture}
+      }
+      \caption{$q\bar{q}$ annihilation}
+    \end{subfigure}
+    \caption{Dominant LO Feynman diagrams for $t\bar{t}Z$ production.}
   \end{figure}
 \end{frame}
 
@@ -603,7 +653,16 @@
   {\tiny \color{gray} NIKHEF, \textbf{\href{https://doi.org/10.1007/JHEP03(2023)033}{JHEP 03 (2023) 033}} [\href{https://arxiv.org/abs/2211.02058v2}{\texttt{arXiv:2211.02058}}]} \\
   {\tiny \color{gray} J. Brehmer et al., \textbf{\href{https://doi.org/10.1103/PhysRevLett.121.111801}{Phys. Rev. Lett. 121 (2018) 111801}} [\href{https://arxiv.org/abs/1805.00013v2}{\texttt{arXiv:1805.00013}}]} \\
   {\tiny \color{gray} ATLAS Collaboration, \href{https://cds.cern.ch/record/2872789/}{\texttt{ATL-PHYS-PUB-2023-030}}}
+\end{frame}
 
+\begin{frame}{Conclusion}
+  \begin{itemize}
+    \item Top quark measurements sensitive to BSM physics.
+    \item Deviations from SM predictions in associated top production channels could indicate new EWSB effects.
+    \item EFT allows for study of BSM phenomena at currently unreachable energy scales in a model-independent way.
+    \item Precise top measurements allow for constraints on Wilson coefficients of SMEFT operators.
+    \item LHC Run 3 and machine learning techniques should allow for more precise top measurements and stronger constraints on SMEFT operators.
+  \end{itemize}
 \end{frame}
 
 
