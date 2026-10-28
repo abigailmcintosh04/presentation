@@ -25,33 +25,38 @@
   \tableofcontents
 \end{frame}
 
-\section{Section 1}
-\subsection{Subsection 1.1}
+\section{Top Physics}
+\subsection{Introduction}
 
 % ========== TOP INTRODUCTION ==========
 \begin{frame}{Top Quark}
   \begin{itemize}
-    \item Heaviest known elementary particle -- $m_t = \qty{172.76 \pm 0.3}{\giga\electronvolt}$.
+    \item Heaviest known elementary particle -- $m_t = 172.6 \pm 0.3\,\unit{\giga\electronvolt}$.
     \item Yukawa coupling $y_t \sim 1$, largest of all fermions.
     \item Short lifetime ($\tau \sim \qty{5e-25}{\second}$), decays before hadronisation.
+    \item Plays large role in electroweak symmetry breaking and sensitive to BSM physics.
+    \item LHC is a top factory.
     \item Main production mechanisms:
     \begin{itemize}
       \item Pair production via strong interaction.
-      \item Single top production via electroweak interaction (three channels).
-      \item Associated production with other particles.
+      \item Single top production via electroweak interaction.
+      \item Associated $t\bar{t}$ production.
     \end{itemize}
-    \item Plays large role in electroweak symmetry breaking and sensitive to BSM physics.
-    \item LHC is a top factory.
   \end{itemize}
 \end{frame}
 
+\subsection{Production Mechanisms}
+\subsubsection{Pair Production}
 
 % ========== TOP PAIR PRODUCTION ==========
-\begin{frame}{$t\bar{t}$ Production}
+\begin{frame}{Pair Production}
   \begin{itemize}
     \item Dominant production mechanism at LHC.
     \item Mediated by strong interaction.
     \item Produced by either gluon-gluon fusion (90\%) or quark-antiquark annihilation (10\%).
+    \begin{itemize}
+      \item Imbalance due to proton PDF.
+    \end{itemize}
   \end{itemize}
   \begin{figure}[htbp]
     \centering
@@ -70,8 +75,8 @@
             \draw [gluon] (f1) node[above left] {$g$} -- (a);
             \draw [gluon] (a) -- (f2) node[below left] {$g$};
             \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
-            \draw [fermion] (f3) node[above right] {$t$} -- (b);
-            \draw [fermion] (b) -- (f4) node[below right] {$\bar{t}$};
+            \draw [fermion] (f3) node[above right] {$\bar{t}$} -- (b);
+            \draw [fermion] (b) -- (f4) node[below right] {$t$};
           \end{feynman}
         \end{tikzpicture}
       }
@@ -89,11 +94,11 @@
             \coordinate (f2) at (-1.6, -1.0);
             \coordinate (f4) at (1.6, -1.0);
 
-            \draw [fermion] (f1) node[above left] {$q$} -- (a);
-            \draw [fermion] (a) -- (f2) node[below left] {$\bar{q}$};
+            \draw [fermion] (a) -- (f1) node[above left] {$\bar{q}$};
+            \draw [fermion] (f2) node[below left] {$q$} -- (a) ;
             \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
-            \draw [fermion] (f3) node[above right] {$t$} -- (b);
-            \draw [fermion] (b) -- (f4) node[below right] {$\bar{t}$};
+            \draw [fermion] (f3) node[above right] {$\bar{t}$} -- (b);
+            \draw [fermion] (b) -- (f4) node[below right] {$t$};
           \end{feynman}
         \end{tikzpicture}
       }
@@ -103,12 +108,13 @@
   \end{figure}
 \end{frame}
 
+\subsubsection{Single Top Production}
 
 % ========== SINGLE TOP PRODUCTION ==========
 \begin{frame}[fragile]{Single Top Production}
   \begin{itemize}
     \item Charged-current electroweak process.
-    \item Three production channels:
+    \item Three production channels (corresponding antitop modes also exist):
     \begin{itemize}
       \item $t$-channel: $q b \rightarrow q' t$
       \item $s$-channel: $q \bar{q}' \rightarrow t \bar{b}$
@@ -123,8 +129,8 @@
       \resizebox{\textwidth}{!}{%
       \begin{tikzpicture}
           \begin{feynman}
-            \coordinate (a)  at (0, 0.4);
-            \coordinate (b)  at (0, -0.4);
+            \coordinate (a)  at (0, 0.6);
+            \coordinate (b)  at (0, -0.6);
             \coordinate (f1) at (-1.6, 1.0);
             \coordinate (f3) at (1.6, 1.0);
             \coordinate (f2) at (-1.6, -1.0);
@@ -157,7 +163,7 @@
             \draw [fermion] (a) -- (f1) node[above left] {$\bar{q}'$};
             \draw [fermion] (f2) node[below left] {$q$} -- (a);
             \draw [boson]   (a) -- node[above=2pt] {$W$} (b);
-            \draw [fermion] (f3) node[above right] {$b$} -- (b);
+            \draw [fermion] (f3) node[above right] {$\bar{b}$} -- (b);
             \draw [fermion] (b) -- (f4) node[below right] {$t$};
           \end{feynman}
         \end{tikzpicture}%
@@ -189,35 +195,61 @@
       \caption{$tW$-channel}
       \label{subfig:twchan}
     \end{subfigure}
-    \caption{Feynman diagrams for single top production channels.}
+    \caption{Example LO Feynman diagrams for single top production channels.}
     \label{fig:single-top-diagrams}
-    \end{figure}
+  \end{figure}
+  
 \end{frame}
 
+\begin{frame}{Single Top Production Cross Sections}
+  \begin{itemize}
+    \item $t$-channel (ATLAS): \textcolor{blue}{$\sigma_{\text{$t$-ch}} = 221 \pm 13\,\unit{\pico\barn}$}.
+    \begin{itemize}
+      \item Ratio of cross sections for single top and antitop \textcolor{blue}{$R_{\text{$t$-ch}} = 1.636 {}^{+0.036}_{-0.034}$}.
+    \end{itemize}
+    \item $s$-channel (ATLAS): \textcolor{blue}{$\sigma_{\text{$s$-ch}} = 10.8 \pm 1.5\,\text{(stat.)} \pm 1.6\,\text{(syst.)}\,\unit{\pico\barn}$}.
+    \begin{itemize}
+      \item First observation at LHC using run 2 data in Oct. 2026.
+    \end{itemize}
+    \item $tW$-channel (CMS): \textcolor{blue}{$\sigma_{\text{tW}} = 79.2 \pm 0.9\,\text{(stat.)}\,^{+7.7}_{-8.0}\,\text{(syst.)} \allowbreak \pm 1.2\,\text{(lumi)}\,\unit{\pico\barn}$}.
+    \item All measurements shown consistent with SM predictions.
+    \item All cross-section measurements taken from ATLAS or CMS at LHC Run 2, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} \approx \qty{140}{\per\femto\barn}$.
+  \end{itemize}
+  {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP05(2024)305}{JHEP 05 (2024) 305}} [\href{https://arxiv.org/abs/2403.02126v3}{\text{arXiv:2403.02126}}]} \\
+  {\tiny \color{gray} ATLAS Collaboration, \textbf{submitted to \textit{Phys. Rev. Lett.}} [\href{https://arxiv.org/abs/2610.11465v1}{\text{arXiv:2610.11465}}]} \\
+  {\tiny \color{gray} CMS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2023)046}{JHEP 07 (2023) 046}} [\href{https://arxiv.org/abs/2208.00924}{\text{arXiv:2208.00924}}]}
+\end{frame}
+
+\subsubsection{Associated $t\bar{t}$ Production}
 
 % ========== ASSOCIATED TOP PRODUCTION ==========
-\begin{frame}{Associated Top Production}
+\begin{frame}{Associated $t\bar{t}$ Production}
   \begin{itemize}
-    \item Top quarks can also be produced in association with other particles, such as:
+    \item Top quarks can be produced as a pair in association with other particles, such as:
     \begin{itemize}
       \item $t\bar{t}W$ (top quark pair with W boson)
       \item $t\bar{t}Z$ (top quark pair with Z boson)
       \item $t\bar{t}\gamma$ (top quark pair with photon)
       \item $t\bar{t}H$ (top quark pair with Higgs boson)
+      \item Other various processes, e.g. $t\bar{t}t\bar{t}$ (four top quarks) and diboson production (not covered).
     \end{itemize}
-    \item All cross-section measurements taken from ATLAS or CMS at LHC Run 2, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} \approx \qty{140}{\per\femto\barn}$.
     \item Deviations from SM predictions could indicate new effects in electroweak symmetry breaking.
+    \item All cross-section measurements taken from ATLAS or CMS at LHC Run 2, $\sqrt{s} = \qty{13}{\tera\electronvolt}$, $L_{int} \approx \qty{140}{\per\femto\barn}$.
   \end{itemize}
 \end{frame}
 
+\section{Associated $t\bar{t}$ Production}
+\subsection{$t\bar{t}\gamma$}
 
 % ==================== TTBAR GAMMA ====================
 \begin{frame}[fragile]{$t\bar{t}\gamma$}
   \begin{itemize}
-    \item Sensitive to top quark electric charge and electromagnetic coupling.
-    \item Offers sensitivity to BSM phenomena at LO in perturbative QCD.
-    \item Photon can come from initial state radiation (ISR), intermediate state particles (e.g. top quark) (dominant), or final state radiation (FSR) from top decay products.
-    \item Forward-backward charge asymmetry due to interference between ISR and top quark radiation.
+    \item Sensitive to coupling of top quarks to photons.
+    \item Photon from ISR, top quark radiation, or decay radiation.
+    \item Top quark charge asymmetry due to interference between ISR and top quark radiation.
+    \begin{itemize}
+      \item $A_{\text{C}} = \frac{N(|y_t| > |y_{\bar{t}}|) - N(|y_t| < |y_{\bar{t}}|)}{N(|y_t| > |y_{\bar{t}}|) + N(|y_t| < |y_{\bar{t}}|)}$
+    \end{itemize}
   \end{itemize}
   \begin{figure}[htbp]
     \centering
@@ -236,12 +268,12 @@
             \coordinate (gamma1) at (-0.9, 0.3);
             \coordinate (gamma2) at (-0.2, 1.0);
 
-            \draw [fermion] (f1) node[above left] {$q$} -- (a);
-            \draw [fermion] (a) -- (f2) node[below left] {$\bar{q}$};
+            \draw [fermion] (a) -- (f1) node[above left] {$\bar{q}$};
+            \draw [fermion] (f2) node[below left] {$q$} -- (a) ;
             \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
             \draw [fermion] (f3) node[above right] {$\bar{t}$} -- (b);
             \draw [fermion] (b) -- (f4) node[below right] {$t$};
-            \draw [photon]  (gamma1) -- (gamma2) node[above=2pt] {$\gamma$};
+            \draw [photon]  (gamma1) -- (gamma2) node[above right] {$\gamma$};
           \end{feynman}
         \end{tikzpicture}%
       }
@@ -268,7 +300,7 @@
             \draw [gluon]   (a) -- node[above=2pt] {$g$} (b);
             \draw [fermion] (f3) node[above right] {$\bar{t}$} -- (b);
             \draw [fermion] (b) -- (f4) node[below right] {$t$};
-            \draw [photon]  (gamma1) -- (gamma2) node[above=2pt] {$\gamma$};
+            \draw [photon]  (gamma1) -- (gamma2) node[right] {$\gamma$};
           \end{feynman}
         \end{tikzpicture}%
       }
@@ -309,20 +341,27 @@
 
 \begin{frame}{$t\bar{t}\gamma$ Cross Section}
   \begin{itemize}
-    \item CMS: Fiducial cross section \textcolor{blue}{$\sigma_{t\bar{t}\gamma} = \qty{137 \pm 8}{\femto\barn}$}, measured at \textcolor{blue}{$\sigma_{t\bar{t}\gamma} = \qty{56 \pm 5}{\femto\barn}$} when only considering photons from ISR and top quark radiation. 
-    \item Both in agreement with SM prediction.
+    \item CMS: Fiducial cross-section \textcolor{blue}{$\sigma_{t\bar{t}\gamma} = 137 \pm 8\,\unit{\femto\barn}$}.
+    \begin{itemize}
+      \item When removing decay radiation, \textcolor{blue}{$\sigma_{t\bar{t}\gamma} = 56 \pm 5\,\unit{\femto\barn}$}.
+    \end{itemize} 
+    \item Both consistent with SM prediction.
     \item Two-lepton final states considered.
   \end{itemize}
   {\tiny \color{gray} CMS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP04(2026)086}{JHEP 04 (2026) 086}} [\href{https://arxiv.org/abs/2511.01995v2}{\text{arXiv:2511.01995}}]}
 \end{frame}
 
+\subsection{$t\bar{t}W$}
 
 % ==================== TTBAR W ====================
 \begin{frame}{$t\bar{t}W$}
   \begin{itemize}
-    \item At leading order, only produced through quark-antiquark annihilation.
+    \item Produced through quark-antiquark annihilation at LO.
     \item Sensitive to top quark interaction with electroweak bosons. 
     \item Noticable difference in production rates of $t\bar{t}W^+$ and $t\bar{t}W^-$ due to differing abundances of $u\bar{d}$ and $d\bar{u}$ states in main LO production channels.
+    \begin{itemize}
+      \item Imbalance due to proton PDF.
+    \end{itemize}
   \end{itemize}
   \begin{figure}[htbp]
     \centering
@@ -352,15 +391,15 @@
 
 \begin{frame}{$t\bar{t}W$ Measurements}
   \begin{itemize}
-    \item ATLAS: Inclusive cross section \textcolor{blue}{$\sigma_{t\bar{t}W} = \qty{880 \pm 80}{\femto\barn}$}.
+    \item ATLAS: Inclusive cross-section \textcolor{blue}{$\sigma_{t\bar{t}W} = 880 \pm 80\,\unit{\femto\barn}$}.
     \begin{itemize}
-      \item $\sigma_{t\bar{t}W^+} / \sigma_{t\bar{t}W^-} = 1.96 \pm 0.22$.
+      \item \textcolor{blue}{$\sigma_{t\bar{t}W^+} / \sigma_{t\bar{t}W^-} = 1.96 \pm 0.22$}.
     \end{itemize}
-    \item CMS: Inclusive cross section \textcolor{blue}{$\sigma_{t\bar{t}W} = 868 \pm 40\,\text{(stat)}\,\pm 51\,\text{(syst)}\,\unit{\femto\barn}$}.
+    \item CMS: Inclusive cross-section \textcolor{blue}{$\sigma_{t\bar{t}W} = 868 \pm 40\,\text{(stat.)}\,\pm 51\,\text{(syst.)}\,\unit{\femto\barn}$}.
     \begin{itemize}
-      \item $\sigma_{t\bar{t}W^+} / \sigma_{t\bar{t}W^-} = 1.61 \pm 0.15$.
+      \item \textcolor{blue}{$\sigma_{t\bar{t}W^+} / \sigma_{t\bar{t}W^-} = 1.61 \pm 0.15$}.
     \end{itemize}
-    \item All measurements shown consistent with SM predictions within 2$\sigma$. 
+    \item All measurements shown consistent with SM predictions. 
   \end{itemize}
   {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP05(2024)131}{JHEP 05 (2024) 131}} [\href{https://arxiv.org/abs/2401.05299v2}{\text{arXiv:2401.05299}}]} \\
   {\tiny \color{gray} CMS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2023)219}{JHEP 07 (2023) 219}} [\href{https://arxiv.org/abs/2208.06485v2}{\text{arXiv:2208.06485}}]}
@@ -372,16 +411,18 @@
     \begin{subfigure}{0.48\textwidth}
       \centering
       \includegraphics[width=0.9\textwidth]{figures/ttw_xs.png}
-      \caption{\centering ATLAS and CMS $t\bar{t}W$ cross section data.}
+      \caption{\centering Comparison of ATLAS and CMS inclusive $t\bar{t}W$ cross-section measurements with theoretical predictions.}
     \end{subfigure}
     \begin{subfigure}{0.48\textwidth}
       \centering
       \includegraphics[width=0.9\textwidth]{figures/ttw_ratio.png}
-      \caption{\centering ATLAS and CMS $t\bar{t}W$ W charge ratio data.}
+      \caption{\centering Comparison of ATLAS and CMS $t\bar{t}W^+ / t\bar{t}W^-$ cross-section ratio measurements with theoretical predictions.}
     \end{subfigure}
   \end{figure}
+  {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP05(2024)131}{JHEP 05 (2024) 131}} [\href{https://arxiv.org/abs/2401.05299v2}{\text{arXiv:2401.05299}}]}
 \end{frame}
 
+\subsection{$t\bar{t}Z$}
 
 % ==================== TTBAR Z ====================
 \begin{frame}{$t\bar{t}Z$}
@@ -444,19 +485,20 @@
       }
       \caption{$q\bar{q}$ annihilation}
     \end{subfigure}
-    \caption{Dominant LO Feynman diagrams for $t\bar{t}Z$ production.}
+    \caption{Example LO Feynman diagrams for $t\bar{t}Z$ production.}
   \end{figure}
 \end{frame}
 
 \begin{frame}{$t\bar{t}Z$ Cross Section}
   \begin{itemize}
-    \item Inclusive cross section measured at \textcolor{blue}{$\sigma_{t\bar{t}Z} = 0.86 \pm 0.04\,\text{(stat)} \pm 0.04\,\text{(syst)}\unit{\pico\barn}$}.
+    \item ATLAS: Inclusive cross-section\textcolor{blue}{$\sigma_{t\bar{t}Z} = 0.86 \pm 0.04\,\text{(stat.)} \pm 0.04\,\text{(syst.)}\,\unit{\pico\barn}$}.
     \item In agreement with Standard Model NLO + NNLL prediction.
     \item Two, three and four lepton final states considered.
   \end{itemize}
   {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP07(2024)163}{JHEP 07 (2024) 163}} [\href{https://arxiv.org/abs/2312.04450v3}{\texttt{arXiv:2312.04450}}]}
 \end{frame}
 
+\subsection{$t\bar{t}H$}
 
 % ==================== TTBAR H ====================
 \begin{frame}[fragile]{$t\bar{t}H$}
@@ -552,11 +594,11 @@
   \begin{itemize}
     \item $t\bar{t}H$ production observed in many different Higgs decay channels, including $H \rightarrow b\bar{b}$, $H \rightarrow \gamma\gamma$, $H \rightarrow ZZ^* \rightarrow 4\ell$, and $H \rightarrow \tau^+\tau^-$.
     \begin{itemize}
-      \item All results compatible with SM predictions.
+      \item All measurements consistent with SM predictions.
     \end{itemize}
-    \item Analysis of six multilepton channels peformed by ATLAS in 2026, with inclusive cross section measured at \textcolor{blue}{$\sigma_{t\bar{t}H} = (321\,^{+102}_{-99})\,\unit{\femto\barn}$}, within 2$\sigma$ of SM prediction.
+    \item ATLAS: Inclusive cross-section \textcolor{blue}{$\sigma_{t\bar{t}H} = 321 {}^{+102}_{-99}\,\unit{\femto\barn}$}.
     \begin{itemize}
-      \item Channels considered: $2\ell SS0\tau_{had}$, $3\ell 0\tau_{had}$, $4\ell$, $2\ell SS1\tau_{had}$, $1\ell2\tau_{had}$, $2\ell2\tau_{had}$. 
+      \item Analysis of six multilepton channels: $2\ell SS0\tau_{had}$, $3\ell 0\tau_{had}$, $4\ell$, $2\ell SS1\tau_{had}$, $1\ell2\tau_{had}$, $2\ell2\tau_{had}$.
     \end{itemize}
   \end{itemize}
   {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP05(2026)183}{JHEP 05 (2026) 183}} [\href{https://arxiv.org/abs/2510.23755v2}{\texttt{arXiv:2510.23755}}]}
@@ -571,6 +613,8 @@
   {\tiny \color{gray} ATLAS Collaboration, \textbf{\href{https://doi.org/10.1007/JHEP05(2026)183}{JHEP 05 (2026) 183}} [\href{https://arxiv.org/abs/2510.23755v2}{\texttt{arXiv:2510.23755}}]}
 \end{frame}
 
+\section{Effective Field Theory}
+\subsection{Introduction}
 
 % ==================== EFT INTERPRETATION ====================
 \begin{frame}{Effective Field Theory}
@@ -579,18 +623,20 @@
     \item Allows properties of high-energy BSM physics at scale $\Lambda$ to be related with low-energy measurements.
     \item The dimensionless Wilson coefficients $c_i^{(d)}$ are used to parameterise the strength of the new physics effects.
   \end{itemize}  
-  \begin{block}{EFT Lagrangian}
+  \begin{block}{SMEFT Lagrangian}
     \begin{equation}
-      \mathcal{L} = \mathcal{L}_\text{SM} + \sum_{d=5}^{\infty} \sum_i \frac{c_i^{(d)}}{\Lambda^{d-4}} \mathcal{O}_i^{(d)}
+      \mathcal{L} = \mathcal{L}_\text{SM} + \sum_{d=5}^{\infty} \sum_i \frac{c_i^{(d)}}{\Lambda^{d-4}} \mathcal{O}_i^{(d)},
     \end{equation}
     where $d$ is mass dimension, $c_i^{(d)}$ are the Wilson coefficients, $\Lambda$ is the energy scale of new physics, and $\mathcal{O}_i^{(d)}$ are the higher-dimensional operators.
   \end{block}
 \end{frame}
 
+\subsection{SMEFT}
+
 \begin{frame}{SMEFT}
   \begin{itemize}
-    \item SMEFT extends the SM Lagrangian with higher-dimensional (primarily dimension-6) operators, suppressed by powers of $\Lambda$.
-    \item In SMEFT, typically look at dimension-6 operators.
+    \item SMEFT extends the SM Lagrangian with higher-dimensional operators, suppressed by powers of $\Lambda$.
+    \item Typically interested in dimension-6 operators.
     \begin{itemize}
       \item SM contains dimension-2 and dimension-4 operators.
       \item Dimension-5 operators provide a mechanism for neutrino mixing.
@@ -604,6 +650,8 @@
   {\tiny \color{gray} University of Warsaw, \textbf{\href{https://doi.org/10.1007/JHEP10(2010)085}{JHEP 10 (2010) 085}} [\href{https://arxiv.org/abs/1008.4884v3}{\texttt{arXiv:1008.4884}}]}
 \end{frame}
 
+\subsubsection{EFT Effects}
+
 \begin{frame}{EFT Effects}
   \begin{itemize}
     \item SMEFT operators can modify SM predictions of rates and kinematic distributions of certain processes.
@@ -613,6 +661,7 @@
   {\tiny \color{gray} J. Wilson for ATLAS \& CMS, TOP2022 \textbf{\href{https://conference.ippp.dur.ac.uk/event/925/contributions/5716/}{(Indico)}}}
 \end{frame}
 
+\subsubsection{EFT Interpretations}
 
 \begin{frame}{EFT Interpretations of top + X}
   \begin{columns}
@@ -631,6 +680,7 @@
           \item Estimate EFT contributions by undoing detector effects to return to particle/parton level.
           \item Simple to reinterpret as full detector simulation not required.
           \item Some EFT coefficients can impact signal and background processes, meaning traditional separation of the two may require modification. 
+          \vspace{\baselineskip}
         \end{itemize}
       \end{block}
     \end{column}
@@ -638,11 +688,12 @@
   {\tiny \color{gray} ATLAS Collaboration, \href{https://cds.cern.ch/record/2872789/}{\texttt{ATL-PHYS-PUB-2023-030}}}
 \end{frame}
 
+\subsection{Future Outlook}
 
 \begin{frame}{Future Outlook}
   \begin{itemize}
     \item LHC Run 3 increased integrated luminosity ($\sim \qty{355}{\per\femto\barn}$) allows for more precise top quark measurements and makes it easier to probe rare processes.
-    \item Machine learning techniques.
+    \item Machine learning techniques are being increasingly used to analyse LHC data.
     \begin{itemize}
       \item Identify and separate signal processes from SM backgrounds.
       \item Suppress migrations in unfolding.
